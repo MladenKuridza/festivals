@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(209, 207, 207, 0.842);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2.5em;
+  width: 50%;
+  text-align: center;
+}
+
+.container h1 {
+  margin-bottom: 1em;
+}
+
+.container hr {
+  margin: 10px 0;
+}
+
+.container input[type="text"] {
+  width: 200px;
+}
+
+.container .edit_input {
+  float: left;
+  margin-right: 10px;
+}
+
+.container #row_input {
+  width: 40px;
+}
+
+.table th {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+  background-color: rgba(20, 20, 20, 0.74);
+}
+
+#festivalMesto {
+  width: 200px;
+}

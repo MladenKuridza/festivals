@@ -1,0 +1,145 @@
+<html>
+
+<head>
+	<title>MK</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="search.css" />
+	<script type="text/javascript" src="skriptaMK.js"></script>
+</head>
+
+<body onload="loadPage()">
+	<div class="container">
+		<div id="loginForm" style="display:none">
+			<h1>Prijava</h1>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col" style="text-align:right;">
+					<form method="post" action="post/" id="loginForm" onsubmit="return loginUser()">
+					<p style="text-align:left;"> <label for="usernameLogin" class="col-sm col-form-label">Korisničko
+							ime: </label></p>
+					<p style="text-align:left;"><label for="passwordLogin" class="col-sm col-form-label">Lozinka:
+						</label></p>
+				</div>
+				<div class="col">
+					<p style="text-align:left;"><input type="text" id="usernameLogin" class="form-control input-sm"></p>
+					<p style="text-align:left;"><input type="password" id="passwordLogin" class="form-control input-sm">
+					</p>
+				</div>
+				<div class="col"></div>
+			</div>
+			<br />
+			<button id="btnLogin" class="btn btn-success">Prijava</button>
+			<button type="button" id="btnRegister" onclick="showRegistration()"
+				class="btn btn-primary">Registracija</button>
+				</form>
+			<br />
+			<br />
+			<br />
+		</div>
+
+		<div id="registerForm" style="display:none" class="input-group mb-3">
+			<h1>Registracija</h1>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">
+					<form method="post" action="post/" id="registerForm" onsubmit="return registerUser()">
+					<p style="text-align:left;"> <label for="usernameRegister" class="col-sm col-form-label">Korisničko ime</label></p>
+					<p style="text-align:left;"> <label for="emailRegister" class="col-sm col-form-label">Email:</label>
+					</p>
+					<p style="text-align:left;"> <label for="passwordRegister" class="col-sm col-form-label">Lozinka:
+						</label></p>
+					<p style="text-align:left;"> <label for="confirmPasswordRegister"
+							class="col-sm col-form-label">Potvrdi lozinku: </label></p>
+				</div>
+				<div class="col">
+					<p style="text-align:left;"><input type="text" id="usernameRegister" class="form-control input-sm">
+					</p>
+					<p style="text-align:left;"><input type="text" id="emailRegister" class="form-control input-sm"></p>
+					<p style="text-align:left;"><input type="password" id="passwordRegister"
+							class="form-control input-sm"></p>
+					<p style="text-align:left;"><input type="password" id="confirmPasswordRegister"
+							class="form-control input-sm"></p>
+				</div>
+				<div class="col"></div>
+			</div>
+			<br />
+			<button id="btnRegistration" class="btn btn-primary">Registruj se</button>
+					</form>
+			<br />
+			<br />
+		</div>
+
+		<div id="logout" style="display:none" class="input-group mb-3">
+			<div class="row">
+				<div class="col">
+					<p id="info"></p>
+				</div>
+				<div class="col">
+					<button id="btnLogout" onclick="logout()" class="btn btn-outline-danger"
+						style="text-align: right;">Odjava</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="data" style="display:none" class="input-group mb-3">
+		</div>
+
+		<div id="pretragaDiv" style="display:none" class="input-group">
+			<br />
+			<h2>Pretraga festivala po godini osnivanja:</h2>
+			<br />
+			<div class="row">
+				<div class="col" style="text-align: right;">
+					<label for="start" class="col-sm col-form-label">Početak:</label>
+				</div>
+				<div class="col" style="text-align: left;">
+					<input type="number" class="form-control input-lg" id="start">
+				</div>
+
+				<div class="col" style="text-align: right;">
+					<label for="kraj" class="col-sm col-form-label">Kraj:</label>
+				</div>
+				<div class="col" style="text-align: left;">
+					<input type="number" class="form-control input-sm" id="kraj">
+				</div>
+				<div class="col"></div>
+				<div class="col">
+					<button type="button" id="btnSearchFestival" onclick="submitPretragaForm()"
+						class="btn btn-primary">Pretraga</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="formDiv" style="display:none" class="input-group">
+			<br />
+			<h2>Dodavanje novog festivala:</h2>
+			<br />
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">
+					<p style="text-align:left;"> <label for="festivalNaziv" class="col-sm col-form-label">Naziv:</label>
+					</p>
+					<p style="text-align:left;"> <label for="festivalCena" class="col-sm col-form-label">Cena
+							karte:</label></p>
+					<p style="text-align:left;"> <label for="festivalGodina" class="col-sm col-form-label">Prvo
+							održavanje:</label></p>
+					<p style="text-align:left;"> <label for="festivalMesto" class="col-sm col-form-label">Mesto:</label>
+					</p>
+				</div>
+				<div class="col" style="text-align: right;">
+					<p style="text-align:left;"><input type="text" class="form-control" id="festivalNaziv"></p>
+					<p style="text-align:left;"><input type="number" class="form-control" id="festivalCena"></p>
+					<p style="text-align:left;"><input type="number" class="form-control" id="festivalGodina"></p>
+					<p style="text-align:left;"><select id="festivalMesto" class="btn btn-secondary dropdown-toggle"> </select></p>
+				</div>
+				<div class="col"></div>
+			</div>
+			<button type="button" id="btnAdding" onclick="submitFestivalForm()"class="btn btn-success">Sačuvaj</button>
+			<button type="button" id="btnCancel" onclick="cancel()" class="btn btn-warning btn-xs">Odustani</button>
+		</div>
+
+	</div>
+</body>
+
+</html>
