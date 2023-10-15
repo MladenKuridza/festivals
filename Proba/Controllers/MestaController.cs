@@ -61,7 +61,6 @@ namespace Mladen_Kuridza.Controllers
                 return BadRequest();
             }
             return Ok(_mestoRepository.SearchMesto(kod).ToList());
-
         }
 
     }
